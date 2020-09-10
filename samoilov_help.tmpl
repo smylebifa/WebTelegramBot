@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="Windows-1251">
+    <title>Help</title>  
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Bootstrap JS  -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/WEBProglogo.png" type="image/x-icon"/>
+
+    <style type="text/css">
+    
+    .list-counter-square {
+      list-style: none;
+      counter-reset: list;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .list-counter-square>li {
+      position: relative;
+      display: block;
+      line-height: 2rem;
+      margin-left: 2rem;
+      margin-bottom: .25rem;
+      padding-left: .5rem;
+      padding-right: .5rem;
+      color: #fff;
+      background: #2a2e6d;
+    }
+
+    .list-counter-square>li:last-child {
+      margin-bottom: 0;
+    }
+
+    .list-counter-square>li::before {
+      content: counter(list);
+      counter-increment: list;
+      position: absolute;
+      left: -2rem;
+      top: 0;
+      bottom: 0;
+      width: 2rem;
+      line-height: 2rem;
+      text-align: center;
+      color: #fff;
+      background: #007bff;
+    }
+
+    .help_container_div {
+      text-align: center;
+    }
+
+    .help_div {
+      color: #343a40; 
+      background-color: #fff; 
+      padding: .75rem; 
+      font-size: 18px; 
+      font-weight: 700;
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div class="help_container_div container-fluid">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="help_div">
+            <h3>Справка</h3> 
+          </div>
+          <h5>
+            <u>Работа с телеграм группами</u>
+            <br><br>
+            Возможности программы:
+            <br><br>
+            <ol class="list-counter-square">
+              <li>Добавления группы</li>
+              <li>Просмотр сообщений группы</li>
+              <li>Просмотр списка участников</li>
+              <li>Просмотр домашних заданий</li>
+              <li>Возможность изменения оценки</li>
+            </ol>  
+            <br>
+            Сделал : Самойлов Илья<br>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <nav class="groups_nav nav nav-pills">
+      <a class="nav-item nav-link active" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=show_list">
+        Группы
+      </a>
+    </nav>
+  </body>
+</html>

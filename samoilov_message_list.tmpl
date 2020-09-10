@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="Windows-1251">
+    <title>Messages</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/WEBProglogo.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="head_div">
+      Сообщения группы 
+    </div>
+
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr> 
+          <th style="text-align:center"> Имя </th> 
+          <th style="text-align:center"> Фамилия </th> 
+          <th style="text-align:center"> Сообщение </th> 
+        </tr>
+      </thead>
+
+      <tbody>
+        <TMPL_LOOP NAME=MESSAGES>
+        <tr> 
+          <td style="text-align:center"> <TMPL_VAR NAME=NAME> </td> 
+          <td style="text-align:center"> <TMPL_VAR NAME=SURNAME> </td>
+          <td style="text-align:center"> <TMPL_VAR NAME=MESSAGE> </td>
+        </tr>
+        </TMPL_LOOP>
+      </tbody>
+    </table>
+    <br>
+
+    <nav class="groups_nav nav nav-pills">
+      <a class="nav-item nav-link active" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=show_list">
+        Группы
+      </a>
+    </nav>
+  </body>
+</html>
