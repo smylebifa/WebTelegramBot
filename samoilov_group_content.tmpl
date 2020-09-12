@@ -1,0 +1,97 @@
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <div class="logo col-1">
+      <a class="navbar-brand">
+        <img src="/images/WEBProglogo.png" alt="logo.png" class="logo_img">
+      </a>
+    </div>
+    <!-- Меню для работы с группами -->        
+    <div class="col-10">
+      <div class="nav-item dropdown">
+        <button class="groups_dropdown btn" type="button" 
+          data-toggle="dropdown">
+          <div class="button_div">Группы
+            <span class="badge badge-pill badge-danger counts_span_dropdown"></span>
+          </div>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <TMPL_LOOP NAME=GROUPS>
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">
+              Группа 
+              <TMPL_VAR NAME=GROUP_NUMBER>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=hometasks&group_number=<TMPL_VAR NAME=GROUP_NUMBER>">
+                  Домашние задание
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=change_score&group_number=<TMPL_VAR NAME=GROUP_NUMBER>">
+                  Изменить оценку
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=users&group_number=<TMPL_VAR NAME=GROUP_NUMBER>">
+                  Участники
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=results&group_number=<TMPL_VAR NAME=GROUP_NUMBER>">
+                  Результаты
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=chat&group_number=<TMPL_VAR NAME=GROUP_NUMBER>">
+                  Чат
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=delete_group&group_number=<TMPL_VAR NAME=GROUP_NUMBER>">
+                  Удалить
+                </a>
+              </li>
+            </ul>
+          </li>
+          </TMPL_LOOP>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Справка -->
+    <div class="help col-1">
+      <a href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=help">
+        <img src="/css/question.svg" alt="?">
+      </a>
+    </div>
+  </div> 
+</nav>
+
+<!-- Выпадающий список JS -->
+<script type="text/javascript"> 
+  $('.dropdown-menu a.dropdown-toggle').on('click', function() {
+  if (!$(this).next().hasClass('show')) {
+    $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+  }
+  var $subMenu = $(this).next(".dropdown-menu");
+  $subMenu.toggleClass('show');
+
+  $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function() {
+    $('.dropdown-submenu .show').removeClass("show");
+  });
+  return false;
+});
+</script>
+
+<!-- Span цифры у кнопки, меню, поля ввода JS -->
+<script type="text/javascript">
+  $('button.groups_dropdown').on('click', function() {
+    $('.counts_span_dropdown').text(0);
+    $('.counts_span_input').text(0);
+    $('.counts_span_button').text(0);
+    $('.counts_span_dropdown').css('display', 'none');
+    $('.counts_span_input').css('display', 'none');
+    $('.counts_span_button').css('display', 'none');
+  });
+</script>

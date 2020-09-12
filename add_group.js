@@ -1,30 +1,21 @@
-$('#add_group').submit(function (event) {
-  event.preventDefault();
-  
-  var $form = $(this),
-  group_number = $form.find("input[name='group_number']").val();
-  
+$('#add_group').submit(function () {
+  var str = $(this).serialize();
   $.ajax({
-    url: 'samoilov_disp.pl',
-    method: 'POST',
-    data: {
-      class : 'SamoilovGroup',
-      event: 'add_group',
-      group_number: group_number
-    },
-    async: false,
-    statusCode: {
-      404: function () {
-        alert('Page not found');
-      },
-      500: function () {
-        alert('Server error');
-      }
-    },
-    success: function (data) {
-      $('#result').html(data);
-    },
-    error: function (data) {
-      $('#result').html(data);
-    }});
+    type: "POST",
+    url: "samoilov_disp.pl",
+    data: str,
+    success: function(){
+      $.ajax({
+        type: "POST",
+        url: "samoilov_disp.pl",
+        data: { class: "SamoilovGroup", event: "show_group_content"},
+        success: function(html){
+          $('.content').html(html);
+          $('.counts_span_dropdown').text($('.counts_span_input').text());
+          $('.counts_span_button').css('display', 'inline');
+        }
+      });
+    }
+  });
+  return false;
 });

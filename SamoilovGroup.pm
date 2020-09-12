@@ -40,6 +40,25 @@ sub show_list
   print $template->output;
 }
 
+sub show_group_content
+{
+  my $self = shift; 
+
+  # Список групп...   
+  my $hash_ref = $self->{db}->get_groups; 
+
+  # Открытие html шаблона...
+  my $template = HTML::Template->new(filename => 'samoilov_group_content.tmpl');
+ 
+  # Передаем ссылку массива хэшей в шаблон параметр...
+  $template->param(groups => $hash_ref);
+ 
+  # Выводим группы...
+  print ("Content-Type: text/html\n");
+  print ("Charset: Windows-1251\n\n");
+
+  print $template->output;
+}
 
 sub help
 {
