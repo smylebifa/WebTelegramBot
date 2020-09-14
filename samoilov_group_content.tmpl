@@ -48,9 +48,12 @@
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=delete_group&group_number=<TMPL_VAR NAME=GROUP_NUMBER>">
-                  Удалить
-                </a>
+                <form id="delete_group" accept-charset="utf-8" method="post">
+                  <input name="class" type="hidden" value="SamoilovGroup"/>
+                  <input name="event" type="hidden" value="delete_group"/>
+                  <input name="group_number" type="hidden" value="<TMPL_VAR NAME=GROUP_NUMBER>"/>
+                  <input class="dropdown-item" type="submit" value="Удалить" />
+                </form>
               </li>
             </ul>
           </li>

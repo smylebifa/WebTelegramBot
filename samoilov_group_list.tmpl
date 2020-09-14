@@ -168,9 +168,12 @@
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/cgi-bin/samoilov_disp.pl?class=SamoilovGroup&event=delete_group&group_number=<TMPL_VAR NAME=GROUP_NUMBER>">
-                        Удалить
-                      </a>
+                      <form id="delete_group" accept-charset="utf-8" method="post">
+                        <input name="class" type="hidden" value="SamoilovGroup"/>
+                        <input name="event" type="hidden" value="delete_group"/>
+                        <input name="group_number" type="hidden" value="<TMPL_VAR NAME=GROUP_NUMBER>"/>
+                        <input class="dropdown-item" type="submit" value="Удалить"/>
+                      </form>
                     </li>
                   </ul>
                 </li>
@@ -232,9 +235,12 @@
     <!-- Скрипт добавления группы -->
     <script type="text/javascript" src="/cgi-bin/add_group.js"></script>
 
+    <!-- Скрипт удаления группы -->
+    <script type="text/javascript" src="/cgi-bin/delete_group.js"></script>
+
+
     <!-- Span цифры у кнопки, меню, поля ввода JS -->
     <script type="text/javascript">
-
       $('button.groups_dropdown').on('click', function() {
         $('.counts_span_dropdown').text(0);
         $('.counts_span_input').text(0);
@@ -242,14 +248,6 @@
         $('.counts_span_dropdown').css('display', 'none');
         $('.counts_span_input').css('display', 'none');
         $('.counts_span_button').css('display', 'none');
-      });
-
-      $('button.add_group').on('click', function() {
-        $('.counts_span_input').text((i, val) => +val + 1);
-        $('.counts_span_button').text((i, val) => +val + 1);
-        $('.counts_span_input').css('display', 'inline');
-        $('.counts_span_button').css('display', 'inline');
-    
       });
     </script>
   </body>
